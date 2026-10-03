@@ -818,10 +818,7 @@ async def admin_callback(
 # =========================================================
 
 def main():
-
-    print(
-        "✅ 𝑬'𝑬 | Crypto Bot Started"
-    )
+    print("✅ 𝑬'𝑬 | Crypto Bot Started")
 
     app = (
         Application
@@ -830,23 +827,14 @@ def main():
         .build()
     )
 
-    # شروع
     app.add_handler(
-        CommandHandler(
-            "start",
-            start
-        )
+        CommandHandler("start", start)
     )
 
-    # پنل ادمین
     app.add_handler(
-        CommandHandler(
-            "admin",
-            admin
-        )
+        CommandHandler("admin", admin)
     )
 
-    # دکمه‌های ادمین
     app.add_handler(
         CallbackQueryHandler(
             admin_callback,
@@ -854,11 +842,9 @@ def main():
         )
     )
 
-    # پیام‌های متنی
     app.add_handler(
         MessageHandler(
-            filters.TEXT
-            & ~filters.COMMAND,
+            filters.TEXT & ~filters.COMMAND,
             handle_message
         )
     )
@@ -867,6 +853,9 @@ def main():
         drop_pending_updates=True
     )
 
+
+if __name__ == "__main__":
+    main()
 
 # =========================================================
 # START
